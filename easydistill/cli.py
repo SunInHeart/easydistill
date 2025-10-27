@@ -77,7 +77,7 @@ def run_cmd(cmd):
 
 def process(job_type, config):
     if not os.path.isabs(config):
-        config = os.path.join(script_dir, config)
+        config = os.path.join(parent_dir, config)
     
     # Knowledge Distillation tasks
     if job_type in ['kd_black_box_train_only', 'kd_white_box_train_only']:
