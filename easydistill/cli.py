@@ -109,9 +109,15 @@ def process(job_type, config):
             ]
             cmd_train = ' '.join(cmd_train)
             logging.info(f"Running command: {cmd_train}")
-            run_cmd(cmd_train)
+            train_success = run_cmd(cmd_train)
+            if not train_success:
+                logging.error("Training failed")
+                sys.exit(1)
+            else:
+                logging.error("Training completed successfully")
         else:
             logging.error("Infer failed, skipping training")
+            sys.exit(1)
 
     elif job_type in ['mmkd_black_box_api', 'mmkd_black_box_local', 'mmkd_white_box']:
         
