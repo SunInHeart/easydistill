@@ -21,11 +21,11 @@ RUN pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple &&
 # Install easydistill and dependencies
 RUN git clone https://github.com/SunInHeart/easydistill.git && \
     cd easydistill && \
-    pip3 install -r requirements.txt && \
+    pip3 install --no-cache-dir -r requirements.txt && \
     python3 setup.py install
 
 # Install other dependencies
-RUN pip3 install modelscope deepspeed jsonlines && \
+RUN pip3 install --no-cache-dir modelscope deepspeed jsonlines && \
     rm -rf /root/.cache/pip
 
 # Set alias for python3
