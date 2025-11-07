@@ -114,7 +114,7 @@ def process(job_type, config):
                 logging.error("Training failed")
                 sys.exit(1)
             else:
-                logging.error("Training completed successfully")
+                logging.info("Training completed successfully")
         else:
             logging.error("Infer failed, skipping training")
             sys.exit(1)
